@@ -1,7 +1,7 @@
 /**
  * 获取地址栏中的指定参数
  * @param url 地址
- * @param par 需要删除的指定字段
+ * @param par 需要获取的指定字段
  */
 function getvar(url, par) {
 	var urlsearch = url.split('?')
