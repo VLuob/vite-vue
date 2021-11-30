@@ -23,7 +23,7 @@ function removeURLParameter(url, par) {
 	var urlparts = url.split('?')
 	if (urlparts.length >= 2) {
 		//参数名前缀
-		var prefix = encodeURIComponent(parameter) + '='
+		var prefix = encodeURIComponent(par) + '='
 		var pars = urlparts[1].split(/[&;]/g)
 		//循环查找匹配参数
 		for (var i = pars.length; i-- > 0; ) {

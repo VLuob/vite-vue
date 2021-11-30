@@ -6,7 +6,9 @@ import {
 	NButton,
 	NPopover,
 	NEllipsis,
+	NScrollbar,
 	NDatePicker,
+	NColorPicker,
 } from 'naive-ui'
 import { defineCustomElement } from 'vue'
 import { useStore, mapGetters } from 'vuex'
@@ -58,7 +60,7 @@ let range = ref()
 onMounted(async () => {
 	console.log('hwRefs:', hwRefs.value, 'attrs:', attrs)
 	let res = await fetchData()
-	console.warn(res)
+	console.log(res)
 })
 /* computed */
 const userInfo = computed(() => 'userInfo')
@@ -80,13 +82,13 @@ const emitCount = (val: any) => {
 }
 const btnClick = () => {
 	store.commit('UPDATE_LOGINSTATUS', { loginStatus: 1 })
-	console.log('loginStatus:', store.state.home.loginStatus, toRefs)
+	console.log('loginStatus:', store.state.home.loginStatus)
 }
 
 const changeColor = () => {
+	const { setColors } = hwRefs.value
 	theme.color = theme.color === '#09f' ? '#08f' : '#09f'
 	colorRandom.value = colorRandom.value === 'red' ? 'pink' : 'red'
-	const { setColors } = hwRefs.value
 	setColors(colorRandom.value)
 }
 
@@ -120,7 +122,7 @@ function fetchData() {
 </script>
 
 <template>
-	<n-color-picker :showPreview="true" on-complete="complete" />
+	<n-color-picker :showPreview="true" />
 	<n-button type="error" @click="btnClick"
 		><input
 			type="file"
@@ -160,7 +162,7 @@ function fetchData() {
 		<accessibility-icon />
 	</n-icon>
 	<br />
-	<n-button @click="showModal = true"> 来吧 </n-button>
+	<n-button @click="showModal = true">来吧</n-button>
 	<n-modal v-model:show="showModal">
 		<n-card
 			style="width: 600px"
@@ -184,9 +186,12 @@ function fetchData() {
 			</div>
 		</template>
 	</n-ellipsis>
+	<div style="width: 200px">
+		<n-scrollbar style="max-height: 120px"> </n-scrollbar>
+	</div>
 </template>
 <style scoped lang="less" module="classess">
-/* 自定义注入名称 也许未来会有一个会说话的伴，贫穷的富有的 */
+/* 自定义注入名称 */
 .span {
 	font: 600 20px/2 '';
 	background: v-bind(colorRandom);

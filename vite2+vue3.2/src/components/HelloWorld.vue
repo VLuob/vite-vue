@@ -20,7 +20,7 @@ const setColors = (color: string) => {
 	console.log(themes)
 }
 watch(count, (n, o) => {
-	console.log(n, o)
+	console.log(`新值${n},旧值${o}`)
 })
 defineExpose({
 	setColors,
