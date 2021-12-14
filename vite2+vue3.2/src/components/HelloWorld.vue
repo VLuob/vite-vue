@@ -22,6 +22,7 @@ const setColors = (color: string) => {
 watch(count, (n, o) => {
 	console.log(`新值${n},旧值${o}`)
 })
+/* 通过defineExpose暴露 */
 defineExpose({
 	setColors,
 	count,

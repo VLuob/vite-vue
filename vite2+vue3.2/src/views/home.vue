@@ -10,7 +10,6 @@ import {
 	NDatePicker,
 	NColorPicker,
 } from 'naive-ui'
-import { defineCustomElement } from 'vue'
 import { useStore, mapGetters } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import { ElButton, ElSkeleton } from 'element-plus'
@@ -122,7 +121,7 @@ function fetchData() {
 </script>
 
 <template>
-	<n-color-picker :showPreview="true" />
+	<n-color-picker :showPreview="true" v-model:value="colorRandom" />
 	<n-button type="error" @click="btnClick"
 		><input
 			type="file"
@@ -194,6 +193,7 @@ function fetchData() {
 /* 自定义注入名称 */
 .span {
 	font: 600 20px/2 '';
+	color: #fff;
 	background: v-bind(colorRandom);
 }
 /* 全局样式 */

@@ -5,10 +5,10 @@ import {
 	darkTheme,
 	NThemeEditor,
 	NConfigProvider,
+	NNotificationProvider,
 } from 'naive-ui'
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-
 const themeOverrides = {
 	common: {
 		primaryColor: '#09f',
@@ -30,12 +30,13 @@ const themeOverrides = {
 		<router-link to="/">About</router-link>
 		<router-link to="/home">Home</router-link>
 	</div>
-	<!-- :theme-overrides="themeOverrides" -->
-	<n-config-provider :locale="zhCN" :date-locale="dateZhCN">
-		<!-- <n-theme-editor> -->
-		<router-view></router-view>
-		<!-- </n-theme-editor> -->
-	</n-config-provider>
+	<n-notification-provider>
+		<n-config-provider :locale="zhCN" :date-locale="dateZhCN">
+			<!-- <n-theme-editor :theme-overrides="themeOverrides"> -->
+			<router-view />
+			<!-- </n-theme-editor> -->
+		</n-config-provider>
+	</n-notification-provider>
 </template>
 
 <style>
