@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watchEffect, reactive, markRaw } from 'vue'
+import { onMounted, ref, watchEffect, reactive } from 'vue'
 import {
 	NGrid,
 	NSpace,
@@ -34,7 +34,7 @@ const handleClick = () => {
 }
 </script>
 <template>
-	<nButton @click="handleClick">最多允许三条通知</nButton>
+	<nButton @click="handleClick" type="info">最多允许三条通知</nButton>
 	<div class="about">
 		<h1>{{ name }}</h1>
 	</div>
