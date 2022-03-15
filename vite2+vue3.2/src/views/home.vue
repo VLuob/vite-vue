@@ -122,13 +122,9 @@ function fetchData() {
 
 <template>
 	<n-color-picker :showPreview="true" v-model:value="colorRandom" />
-	<n-button type="error" @click="btnClick"
-		><input
-			type="file"
-			accept=".jpg,.gif,.png"
-			style="opacity: 0"
-		/>点击上传</n-button
-	>
+	<n-button type="error" @click="btnClick">
+		<input type="file" accept=".jpg, .gif, .png" style="opacity: 0" />点击上传
+	</n-button>
 	<n-date-picker v-model:value="range" type="datetimerange" clearable />
 	<pre>{{ JSON.stringify(range) }}</pre>
 	<n-button type="error" @click="btnClick">add</n-button>
@@ -138,22 +134,16 @@ function fetchData() {
 	</div>
 	<n-popover trigger="hover">
 		<template #trigger>
-			<n-button> 悬浮 </n-button>
+			<n-button>悬浮</n-button>
 		</template>
 		<span>或许不想知道你的花园长得咋样</span>
 	</n-popover>
-	<HelloWorld
-		msg="vite"
-		ref="hwRefs"
-		:color="theme.color"
-		@count="emitCount"
-	/>
+	<HelloWorld msg="vite" ref="hwRefs" :color="theme.color" @count="emitCount" />
 	<br />
 	<n-button text>
 		<n-icon>
 			<train-icon />
-		</n-icon>
-		那车头依然吐着烟
+		</n-icon>那车头依然吐着烟
 	</n-button>
 	<n-icon size="40" color="#0e7a0d">
 		<game-controller />
@@ -163,15 +153,10 @@ function fetchData() {
 	<br />
 	<n-button @click="showModal = true">来吧</n-button>
 	<n-modal v-model:show="showModal">
-		<n-card
-			style="width: 600px"
-			title="模态框"
-			:bordered="false"
-			size="huge"
-		>
-			<template #header-extra> 噢！ </template>
+		<n-card style="width: 600px" title="模态框" :bordered="false" size="huge">
+			<template #header-extra>噢！</template>
 			内容
-			<template #footer> 尾部 </template>
+			<template #footer>尾部</template>
 		</n-card>
 	</n-modal>
 	<br />
@@ -180,19 +165,22 @@ function fetchData() {
 		住在我心里孤独的 孤独的海怪 痛苦之王 开始厌倦 深海的光 停滞的海浪
 		<template #tooltip>
 			<div style="text-align: center">
-				《秦皇岛》<br />住在我心里孤独的<br />孤独的海怪 痛苦之王<br />开始厌倦
+				《秦皇岛》
+				<br />住在我心里孤独的
+				<br />孤独的海怪 痛苦之王
+				<br />开始厌倦
 				深海的光 停滞的海浪
 			</div>
 		</template>
 	</n-ellipsis>
 	<div style="width: 200px">
-		<n-scrollbar style="max-height: 120px"> </n-scrollbar>
+		<n-scrollbar style="max-height: 120px"></n-scrollbar>
 	</div>
 </template>
 <style scoped lang="less" module="classess">
 /* 自定义注入名称 */
 .span {
-	font: 600 20px/2 '';
+	font: 600 20px/2 "";
 	color: #fff;
 	background: v-bind(colorRandom);
 }
@@ -202,10 +190,10 @@ function fetchData() {
 }
 /* 深度选择器 */
 .home:deep(span) {
-	font: 600 15px/2 '';
+	font: 600 15px/2 "";
 }
 /* 状态驱动的动态css */
 .home {
-	background: v-bind('theme.color');
+	background: v-bind("theme.color");
 }
 </style>
